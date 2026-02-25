@@ -2,14 +2,16 @@
 
 import { useRouter } from "next/navigation";
 import { ROUTES } from "@/config/routes";
+import { useApp } from "@/context/AppContext";
 
 export default function LogoutButton() {
   const router = useRouter();
+  const { logout } = useApp();
 
-  async function logout() {
-    await fetch("/api/auth/logout", { method: "POST" });
+  async function onLogout() {
+    await logout();
     router.push(ROUTES.LOGIN);
   }
 
-  return <button onClick={logout}>Se déconnecter</button>;
+  return <button onClick={onLogout}>Se déconnecter</button>;
 }
