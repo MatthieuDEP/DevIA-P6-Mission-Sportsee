@@ -10,3 +10,7 @@ export const PROTECTED_PATH_PREFIXES = [
   ROUTES.COACH_AI,
   ROUTES.PROFILE,
 ];
+
+export function isProtectedPath(pathname) {
+  return PROTECTED_PATH_PREFIXES.some((prefix) => pathname.startsWith(prefix));
+}

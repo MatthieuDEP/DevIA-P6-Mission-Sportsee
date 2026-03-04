@@ -1,0 +1,23 @@
+.linkBtn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b2cff;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.linkBtn:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.linkBtn:focus-visible {
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 0 4px rgba(11, 44, 255, 0.14);
+}

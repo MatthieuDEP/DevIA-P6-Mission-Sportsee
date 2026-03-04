@@ -1,0 +1,91 @@
+.card {
+  background: var(--card);
+  border-radius: 26px;
+  padding: 18px 22px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.avatarWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.12);
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 160ms ease;
+}
+
+.avatarWrap:hover .avatar {
+  transform: scale(1.03);
+}
+
+.identity {
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.55);
+}
+
+.metaStrong {
+  font-weight: 800;
+}
+
+.distanceGroup {
+  display: flex;
+  align-items: center;
+  gap: 14px; 
+}
+
+.distanceLabel {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(17, 24, 39, 0.6);
+  white-space: nowrap;
+}
+
+.distanceCard {
+  height: 54px;
+  padding: 0 20px;
+  border-radius: 18px;
+  background: var(--blue);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16px 35px rgba(11, 44, 255, 0.22);
+}
+
+.distanceValue {
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}

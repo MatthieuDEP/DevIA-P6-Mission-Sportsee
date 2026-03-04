@@ -14,7 +14,11 @@ export function AppProvider({ children }) {
     setError("");
 
     try {
-      const res = await fetch("/api/user", { method: "GET" });
+      const res = await fetch("/api/user", {
+        method: "GET",
+        credentials: "include",
+        cache: "no-store",
+      });
 
       if (!res.ok) {
         setUser(null);
@@ -22,8 +26,8 @@ export function AppProvider({ children }) {
       }
 
       const data = await res.json();
-      setUser(data.user || null);
-    } catch (e) {
+      setUser(data?.user || null);
+    } catch {
       setUser(null);
       setError("Impossible de récupérer l'utilisateur.");
     } finally {
@@ -32,7 +36,7 @@ export function AppProvider({ children }) {
   }
 
   async function logout() {
-    await fetch("/api/auth/logout", { method: "POST" });
+    await fetch("/api/auth/logout", { method: "POST", credentials: "include" });
     setUser(null);
   }
 
@@ -46,7 +50,6 @@ export function AppProvider({ children }) {
       isAuthenticated: !!user,
       loading,
       error,
-      setUser,
       refreshUser,
       logout,
     }),

@@ -1,0 +1,15 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 18px 28px 24px;
+}
+
+.mainInner {
+  max-width: 1120px;
+  margin: 0 auto;
+}

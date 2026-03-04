@@ -1,0 +1,51 @@
+.wrap {
+  position: relative;
+}
+
+.tooltip {
+  background: rgba(17, 24, 39, 0.95);
+  color: #fff;
+  border-radius: 12px;
+  padding: 14px 14px;
+  min-width: 120px;
+}
+
+.tooltipTitle {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.tooltipValue {
+  margin: 6px 0 0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+}
+
+.legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.6);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #0b2cff;
+  opacity: 0.6;
+}
+
+.barCell {
+  transition: fill 140ms ease;
+}
+
+.skeleton {
+  height: 300px;
+  border-radius: 14px;
+  background: rgba(17, 24, 39, 0.03);
+}

@@ -1,3 +1,3 @@
-export default function PublicLayout({ children }) {
+export default function LoginLayout({ children }) {
   return <>{children}</>;
 }

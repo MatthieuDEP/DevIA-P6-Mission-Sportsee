@@ -1,0 +1,46 @@
+.header {
+  background: #f4f6ff;
+}
+
+.inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 26px 64px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.menuPill {
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0 26px;
+  height: 56px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 34px;
+
+  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.06);
+}
+
+.navLink {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(17, 24, 39, 0.85);
+  text-decoration: none;
+  line-height: 1;
+}
+
+.active {
+  color: #0b2cff;
+  font-weight: 700;
+}
+
+.separator {
+  width: 2px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(11, 44, 255, 0.55);
+}

@@ -1,15 +1,12 @@
 import { NextResponse } from "next/server";
-import { ROUTES, PROTECTED_PATH_PREFIXES } from "./src/config/routes";
+import { ROUTES, isProtectedPath } from "./src/config/routes";
+import { AUTH_TOKEN_COOKIE } from "./src/lib/authConstants";
 
 export function middleware(request) {
-  const token = request.cookies.get("sportsee_token")?.value;
+  const token = request.cookies.get(AUTH_TOKEN_COOKIE)?.value;
   const { pathname } = request.nextUrl;
 
-  const isProtected = PROTECTED_PATH_PREFIXES.some((prefix) =>
-    pathname.startsWith(prefix)
-  );
-
-  if (isProtected && !token) {
+  if (isProtectedPath(pathname) && !token) {
     const loginUrl = new URL(ROUTES.LOGIN, request.url);
     loginUrl.searchParams.set("next", pathname);
     return NextResponse.redirect(loginUrl);

@@ -7,6 +7,7 @@ const DB = {
       profile: {
         firstName: "Sophie",
         lastName: "Martin",
+        gender: "Femme",
         age: 32,
         weight: 60,
         height: 165,

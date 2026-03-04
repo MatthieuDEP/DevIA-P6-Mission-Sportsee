@@ -1,0 +1,40 @@
+.footer {
+  padding: 30px 28px;
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: rgba(17, 24, 39, 0.6);
+  font-size: 12px;
+}
+
+.left {
+  margin: 0;
+}
+
+.right {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.link {
+  color: rgba(17, 24, 39, 0.6);
+  transition: color 140ms ease;
+}
+
+.link:hover {
+  color: rgba(11, 44, 255, 1);
+}
+
+.mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #ff2d2d 0%, #0b2cff 100%);
+}

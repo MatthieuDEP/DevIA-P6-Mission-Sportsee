@@ -1,0 +1,80 @@
+.wrap {
+  display: grid;
+  gap: 10px;
+}
+
+.head {
+  display: grid;
+  gap: 6px;
+}
+
+.title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.3px;
+}
+
+.x {
+  color: #0b2cff;
+}
+
+.soft {
+  color: rgba(11, 44, 255, 0.35);
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(17, 24, 39, 0.55);
+}
+
+.chart {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.tagLeft,
+.tagRight {
+  position: absolute;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.55);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tagLeft {
+  left: 14px;
+  bottom: 22px;
+}
+
+.tagRight {
+  right: 32px;
+  top: 34px;
+}
+
+.dotDone,
+.dotRest {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+}
+
+.dotDone {
+  background: #0b2cff;
+}
+
+.dotRest {
+  background: rgba(11, 44, 255, 0.28);
+}
+
+.skeleton {
+  height: 240px;
+  border-radius: 14px;
+  background: rgba(17, 24, 39, 0.03);
+}

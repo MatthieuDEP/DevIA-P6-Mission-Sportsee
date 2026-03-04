@@ -1,0 +1,144 @@
+.page {
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 630px 1fr;
+  background: #f4f6ff;
+}
+
+.left {
+  padding: 80px 56px 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.logoWrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 56px 48px;
+  box-shadow: 0 18px 50px rgba(18, 44, 255, 0.08);
+}
+
+.heroTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 900;
+  color: #0b2cff;
+}
+
+.formTitle {
+  margin: 28px 0 18px;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(17, 24, 39, 0.9);
+}
+
+.form {
+  display: grid;
+  gap: 22px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.55);
+}
+
+.input {
+  height: 58px;
+  border-radius: 10px;
+  border: 1px solid rgba(17, 24, 39, 0.35);
+  padding: 0 16px;
+  background: #ffffff;
+}
+
+.input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(11, 44, 255, 0.14);
+  border-color: rgba(11, 44, 255, 0.5);
+}
+
+.button {
+  margin-top: 16px;
+  height: 58px;
+  border-radius: 12px;
+  border: none;
+  background: #0b2cff;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 16px 35px rgba(11, 44, 255, 0.22);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 22px 50px rgba(11, 44, 255, 0.26);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 22px 50px rgba(11, 44, 255, 0.26), 0 0 0 4px rgba(11, 44, 255, 0.14);
+}
+
+.forgot {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.85);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.error {
+  margin: 0;
+  font-size: 12px;
+  color: #ff2d2d;
+  font-weight: 800;
+}
+
+.right {
+  position: relative;
+  background-image: url("/LoginPicture.png");
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  right: 44px;
+  bottom: 44px;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 18px 22px;
+  box-shadow: 0 18px 50px rgba(18, 44, 255, 0.08);
+  max-width: 420px;
+}
+
+.bubbleText {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.25;
+  color: #0b2cff;
+  font-weight: 600;
+}

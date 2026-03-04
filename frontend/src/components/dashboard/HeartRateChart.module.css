@@ -1,0 +1,66 @@
+.wrap {
+  position: relative;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: rgba(17, 24, 39, 0.6);
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dotMin,
+.dotMax,
+.dotAvg {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.dotMin {
+  background: rgba(255, 45, 45, 0.25);
+}
+
+.dotMax {
+  background: #ff2d2d;
+}
+
+.dotAvg {
+  background: #0b2cff;
+}
+
+.tooltip {
+  background: rgba(17, 24, 39, 0.95);
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-size: 12px;
+}
+
+.tooltipTitle {
+  margin: 0 0 8px;
+  font-weight: 900;
+}
+
+.tooltipLine {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.9;
+}
+
+.skeleton {
+  height: 300px;
+  border-radius: 14px;
+  background: rgba(17, 24, 39, 0.03);
+}
