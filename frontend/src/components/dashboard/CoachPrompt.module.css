@@ -1,63 +1,38 @@
 .card {
-  background: var(--card);
-  border-radius: 26px;
-  box-shadow: var(--shadow);
-  padding: 18px 18px;
+  background: white;
+  border-radius: 10px;
+  padding: 24px 52px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+
+  box-shadow: 0 10px 22px rgba(17, 24, 39, 0.06);
 }
 
 .left {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 14px;
-  display: grid;
-  place-items: center;
-  background: rgba(11, 44, 255, 0.08);
-  color: var(--blue);
-  font-weight: 900;
+  gap: 14px;
 }
 
 .text {
-  margin: 0;
-  font-size: 13px;
-  color: rgba(17, 24, 39, 0.75);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0b2cff;
 }
 
-.btn {
-  height: 44px;
-  padding: 0 18px;
-  border-radius: 14px;
-  background: var(--blue);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 800;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 16px 35px rgba(11, 44, 255, 0.22);
-  transition: transform 150ms ease, box-shadow 150ms ease;
-  white-space: nowrap;
-}
+.button {
+  background: #0b2cff;
+  color: white;
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(11, 44, 255, 0.26);
-}
+  border: none;
+  border-radius: 10px;
 
-.btn:focus-visible {
-  outline: none;
-  box-shadow: 0 22px 50px rgba(11, 44, 255, 0.26), var(--ring);
+  padding: 16px 40px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
 }

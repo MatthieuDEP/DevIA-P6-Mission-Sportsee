@@ -1,5 +1,6 @@
 .footer {
-  padding: 30px 28px;
+  padding: 14px 0;
+  background-color: white;
 }
 
 .inner {
@@ -32,9 +33,9 @@
   color: rgba(11, 44, 255, 1);
 }
 
-.mark {
-  width: 18px;
-  height: 18px;
-  border-radius: 6px;
-  background: linear-gradient(180deg, #ff2d2d 0%, #0b2cff 100%);
+.logo {
+  display: flex;
+  align-items: center;
+  transform: scale(0.85);
+  transform-origin: center;
 }

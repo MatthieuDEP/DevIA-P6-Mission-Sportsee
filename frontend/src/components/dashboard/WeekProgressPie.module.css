@@ -49,13 +49,13 @@
 }
 
 .tagLeft {
-  left: 14px;
-  bottom: 22px;
+  left: 80px;
+  bottom: 35px;
 }
 
 .tagRight {
-  right: 32px;
-  top: 34px;
+  right: 80px;
+  top: 40px;
 }
 
 .dotDone,

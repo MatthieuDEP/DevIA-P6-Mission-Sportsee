@@ -12,13 +12,13 @@
 }
 
 .sectionTitle {
-  margin: 10px 0 0;
+  margin: 18px 0 0;
   font-size: 18px;
   font-weight: 900;
 }
 
 .muted {
-  font-size: 12px;
+  font-size: 16px;
   color: rgba(17, 24, 39, 0.55);
   margin: 0;
 }
@@ -32,7 +32,7 @@
 
 .weekRow {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 0.95fr 1.25fr;
   gap: 18px;
   align-items: start;
 }

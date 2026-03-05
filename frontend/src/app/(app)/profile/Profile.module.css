@@ -1,7 +1,6 @@
 .page {
   background: #f4f6ff;
-  min-height: calc(100vh - 120px);
-}
+}  
 
 .container {
   max-width: 1440px;
@@ -26,7 +25,7 @@
 .userCard {
   background: #ffffff;
   border-radius: 10px;
-  padding: 18px;
+  padding: 24px 52px 24px 32px;
   box-shadow: 0 18px 50px rgba(18, 44, 255, 0.08);
   display: flex;
   align-items: center;
@@ -54,8 +53,8 @@
 
 .userName {
   margin: 0;
-  font-size: 14px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 700;
   color: rgba(17, 24, 39, 0.92);
 }
 
@@ -68,7 +67,7 @@
 .profileCard {
   background: #ffffff;
   border-radius: 10px;
-  padding: 18px 18px 16px;
+  padding: 40px 28px 60px 28px;
   box-shadow: 0 18px 50px rgba(18, 44, 255, 0.08);
 }
 
@@ -79,8 +78,8 @@
 
 .profileTitle {
   margin: 0;
-  font-size: 14px;
-  font-weight: 900;
+  font-size: 22px;
+  font-weight: 700;
   color: rgba(17, 24, 39, 0.92);
 }
 
@@ -94,13 +93,13 @@
   padding: 14px 0 0;
   margin: 0;
   display: grid;
-  gap: 12px;
+  gap: 24px;
 }
 
 .profileItem {
   display: flex;
-  gap: 6px;
-  font-size: 12px;
+  gap: 8px;
+  font-size: 16px;
   color: rgba(17, 24, 39, 0.62);
 }
 
@@ -123,7 +122,7 @@
 
 .statsTitle {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
   color: rgba(17, 24, 39, 0.92);
 }
@@ -147,18 +146,18 @@
 
 .statTile {
   background: #0b2cff;
-  border-radius: 6px;
-  padding: 16px 18px;
-  box-shadow: 0 16px 35px rgba(11, 44, 255, 0.22);
+  border-radius: 10px;
+  padding: 20px 30px;
+  box-shadow: 0 8px 18px rgba(11, 44, 255, 0.22);
   min-height: 74px;
   display: grid;
   align-content: center;
-  gap: 8px;
+  gap: 16px;
 }
 
 .statLabel {
   margin: 0;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.88);
 }
@@ -166,14 +165,14 @@
 .statValue {
   margin: 0;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: 700;
   color: #ffffff;
   letter-spacing: -0.2px;
 }
 
 .statUnit {
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 700;
   opacity: 0.9;
 }
 

@@ -14,9 +14,9 @@
 
 .menuPill {
   background: #ffffff;
-  border-radius: 999px;
-  padding: 0 26px;
-  height: 56px;
+  border-radius: 40px;
+  padding: 16px 48px;
+  height: 50px;
 
   display: inline-flex;
   align-items: center;

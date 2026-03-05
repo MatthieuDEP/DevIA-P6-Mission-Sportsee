@@ -34,9 +34,9 @@ export default function WeekProgressPie({ done, goal }) {
             <Pie
               data={data}
               dataKey="value"
-              innerRadius={58}
-              outerRadius={84}
-              startAngle={0}
+              innerRadius={44}
+              outerRadius={80}
+              startAngle={270}
               endAngle={-360}
               stroke="none"
               isAnimationActive={false}

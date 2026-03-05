@@ -7,7 +7,8 @@ import styles from "./ProfileCard.module.css";
 export default function ProfileCard({ user, totalDistanceKm }) {
   const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
 
-  const API_ORIGIN = process.env.NEXT_PUBLIC_API_ORIGIN || "http://localhost:8000";
+  const API_ORIGIN =
+    process.env.NEXT_PUBLIC_API_ORIGIN || "http://localhost:8000";
 
   const fileName = user?.profilePicture || "sophie.jpg";
   const remoteSrc = `${API_ORIGIN}/images/${fileName}`;
@@ -34,17 +35,32 @@ export default function ProfileCard({ user, totalDistanceKm }) {
           <h1 className={styles.name}>{fullName || "Utilisateur"}</h1>
           <p className={styles.meta}>
             Membre depuis le{" "}
-            <span className={styles.metaStrong}>{user?.createdAt || "—"}</span>
+            <span className={styles.metaStrong}>
+              {user?.createdAt || "—"}
+            </span>
           </p>
         </div>
       </div>
 
       <div className={styles.distanceGroup}>
-        <span className={styles.distanceLabel}>Distance totale parcourue</span>
+        <span className={styles.distanceLabel}>
+          Distance totale parcourue
+        </span>
+
         <div className={styles.distanceCard}>
-          <span className={styles.distanceValue}>
-            {Number(totalDistanceKm || 0).toFixed(0)} km
-          </span>
+          <div className={styles.distanceContent}>
+            <Image
+              src="/Outline.png"
+              alt=""
+              width={34}
+              height={34}
+              className={styles.distanceIcon}
+            />
+
+            <span className={styles.distanceValue}>
+              {Number(totalDistanceKm || 0).toFixed(0)} km
+            </span>
+          </div>
         </div>
       </div>
     </section>

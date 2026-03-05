@@ -1,16 +1,19 @@
+"use client";
+
 import styles from "./Logo.module.css";
 
-export default function Logo() {
+export default function Logo({ showText = true, className = "" }) {
   return (
-    <div className={styles.logo} aria-label="SportSee">
-      <span className={styles.mark} aria-hidden="true">
+    <div className={`${styles.logo} ${className}`} aria-label="SportSee">
+      <span className={styles.bars} aria-hidden="true">
         <span className={styles.bar} />
         <span className={styles.bar} />
         <span className={styles.bar} />
         <span className={styles.bar} />
         <span className={styles.bar} />
       </span>
-      <span className={styles.word}>SPORTSEE</span>
+
+      {showText ? <span className={styles.word}>SportSee</span> : null}
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo/Logo";
 import styles from "./AppFooter.module.css";
 
 export default function AppFooter() {
@@ -5,14 +6,19 @@ export default function AppFooter() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <p className={styles.left}>©Sportsee &nbsp; Tous droits réservés</p>
+
         <div className={styles.right}>
           <a className={styles.link} href="#">
             Conditions générales
           </a>
+
           <a className={styles.link} href="#">
             Contact
           </a>
-          <span className={styles.mark} aria-hidden="true" />
+
+          <div className={styles.logo}>
+            <Logo showText={false} />
+          </div>
         </div>
       </div>
     </footer>

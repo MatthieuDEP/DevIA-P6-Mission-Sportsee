@@ -68,7 +68,7 @@
 
 .input:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(11, 44, 255, 0.14);
+  box-shadow: 0 0 0 2px rgba(11, 44, 255, 0.14);
   border-color: rgba(11, 44, 255, 0.5);
 }
 
@@ -82,13 +82,11 @@
   font-size: 14px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 16px 35px rgba(11, 44, 255, 0.22);
-  transition: transform 150ms ease, box-shadow 150ms ease;
 }
 
 .button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 22px 50px rgba(11, 44, 255, 0.26);
+  box-shadow: 0 11px 25px rgba(11, 44, 255, 0.26);
 }
 
 .button:focus-visible {
