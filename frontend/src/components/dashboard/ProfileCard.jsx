@@ -8,7 +8,7 @@ export default function ProfileCard({ user, totalDistanceKm }) {
   const fullName = `${user?.firstName || ""} ${user?.lastName || ""}`.trim();
 
   const API_ORIGIN =
-    process.env.NEXT_PUBLIC_API_ORIGIN || "http://localhost:8000";
+    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
   const fileName = user?.profilePicture || "sophie.jpg";
   const remoteSrc = `${API_ORIGIN}/images/${fileName}`;

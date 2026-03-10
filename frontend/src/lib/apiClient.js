@@ -1,4 +1,4 @@
-const API_ORIGIN = process.env.NEXT_PUBLIC_API_ORIGIN || "http://localhost:8000";
+const API_ORIGIN = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
 export async function apiFetch(path, options = {}) {
   const res = await fetch(`${API_ORIGIN}${path}`, {
