@@ -93,8 +93,8 @@ export default function HeartRateChart({ data }) {
             type="monotone"
             dataKey="avg"
             stroke="#0B2CFF"
-            strokeWidth={2.5}
-            dot={{ r: 4, stroke: "#fff", strokeWidth: 2 }}
+            strokeWidth={2}
+            dot={{ r: 4, fill: "#0b2cff", stroke: "#0B2CFF", strokeWidth: 2 }}
             activeDot={{ r: 5 }}
             isAnimationActive={false}
           />
