@@ -2,6 +2,8 @@ const express = require("express");
 const jwt = require("jsonwebtoken");
 
 const users = require("./data.json");
+const { authenticateToken, generateToken } = require("./middleware");
+const { generateTrainingPlan } = require("./services/trainingPlanService");
 
 const SECRET_KEY = "your-secret-key-12345"; // In a real app, this would be in environment variables
 
@@ -10,8 +12,6 @@ const getUserById = (userId) => {
 };
 
 const router = express.Router();
-
-const { authenticateToken, generateToken } = require("./middleware");
 
 /**
  * POST /api/login ✅
@@ -116,6 +116,30 @@ router.get("/api/user-activity", authenticateToken, (req, res) => {
   );
 
   return res.json(sortedSessions);
+});
+
+router.post("/api/training-plan/generate", authenticateToken, async (req, res) => {
+  try {
+    const user = getUserById(req.user.userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const payload = {
+      ...req.body,
+      age: user.userInfos?.age || req.body.age,
+    };
+
+    const result = await generateTrainingPlan(payload);
+
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(400).json({
+      ok: false,
+      message: error.message || "Unable to generate training plan",
+    });
+  }
 });
 
 module.exports = router;
