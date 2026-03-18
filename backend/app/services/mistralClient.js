@@ -1,5 +1,3 @@
-// backend/app/services/mistralClient.js
-
 const TRAINING_PLAN_JSON_SCHEMA = {
   type: "object",
   additionalProperties: false,

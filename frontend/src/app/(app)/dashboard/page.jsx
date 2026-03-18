@@ -11,6 +11,7 @@ import ProfileCard from "@/components/dashboard/ProfileCard";
 import DateArrows from "@/components/dashboard/DateArrows";
 import StatBlock from "@/components/dashboard/StatBlock";
 import Card from "@/components/dashboard/Card";
+import TrainingPlanSection from "@/components/dashboard/TrainingPlanSection";
 
 import {
   addDays,
@@ -293,6 +294,10 @@ export default function DashboardPage() {
           <StatBlock title="Distance" value={weekStats.totalDistance} unit="kilomètres" tone="red" />
         </div>
       </div>
+
+      <section className={styles.trainingPlanSection}>
+        <TrainingPlanSection />
+      </section>
     </div>
   );
 }

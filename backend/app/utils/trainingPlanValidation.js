@@ -1,5 +1,3 @@
-// backend/app/utils/trainingPlanValidation.js
-
 const {
   ALLOWED_GOALS,
   ALLOWED_LEVELS,

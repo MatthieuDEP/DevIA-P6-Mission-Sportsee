@@ -64,3 +64,8 @@
   color: rgba(17, 24, 39, 0.55);
   margin-top: 6px;
 }
+
+.trainingPlanSection {
+  display: grid;
+  margin-top: 10px;
+}

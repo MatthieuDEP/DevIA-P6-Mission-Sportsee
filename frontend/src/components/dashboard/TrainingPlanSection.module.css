@@ -1,0 +1,489 @@
+.cardShell,
+.cardShellLarge {
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.05);
+}
+
+.cardShell {
+  min-height: 520px;
+  padding: 56px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardShellLarge {
+  padding: 34px 18px 40px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.sectionIcon {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.heroTitle {
+  max-width: 760px;
+  margin: 0;
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: #101010;
+}
+
+.heroText {
+  max-width: 680px;
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(16, 16, 16, 0.82);
+}
+
+.formBlock {
+  width: 100%;
+  max-width: 320px;
+  margin-top: 34px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: rgba(16, 16, 16, 0.46);
+}
+
+.input {
+  width: 100%;
+  height: 58px;
+  border: 1px solid rgba(16, 16, 16, 0.22);
+  border-radius: 14px;
+  padding: 0 16px;
+  font-size: 16px;
+  color: #101010;
+  background: transparent;
+  outline: none;
+}
+
+.input:focus {
+  border-color: #1737ff;
+  box-shadow: 0 0 0 4px rgba(23, 55, 255, 0.1);
+}
+
+.centerActionRow,
+.actionsRow,
+.doubleActionRow,
+.footerActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.centerActionRow {
+  margin-top: 34px;
+}
+
+.actionsRow {
+  margin-top: 24px;
+}
+
+.doubleActionRow {
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.footerActions {
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.primaryButton,
+.primaryButtonWide,
+.secondaryButton,
+.secondarySquareButton,
+.secondaryGhostButton {
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.primaryButton,
+.primaryButtonWide,
+.secondaryButton {
+  background: #1b33f5;
+  color: #ffffff;
+}
+
+.primaryButton {
+  min-width: 138px;
+  height: 48px;
+  padding: 0 22px;
+}
+
+.primaryButtonWide {
+  min-width: 250px;
+  height: 48px;
+  padding: 0 26px;
+}
+
+.secondaryButton {
+  min-width: 156px;
+  height: 44px;
+  padding: 0 22px;
+}
+
+.secondarySquareButton {
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  color: rgba(16, 16, 16, 0.75);
+  border: 1px solid rgba(16, 16, 16, 0.28);
+  font-size: 24px;
+}
+
+.secondaryGhostButton {
+  height: 48px;
+  padding: 0 20px;
+  background: rgba(27, 51, 245, 0.08);
+  color: #1b33f5;
+}
+
+.primaryButton:hover,
+.primaryButtonWide:hover,
+.secondaryButton:hover,
+.secondarySquareButton:hover,
+.secondaryGhostButton:hover {
+  transform: translateY(-1px);
+}
+
+.primaryButton:disabled,
+.primaryButtonWide:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(27, 51, 245, 0.14);
+  border-top-color: #1b33f5;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 24px;
+}
+
+.errorBadge {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  background: rgba(255, 45, 45, 0.12);
+  color: #ff2d2d;
+  font-size: 28px;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+
+.planIntro {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.planTitle {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #101010;
+}
+
+.planSubtitle {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: rgba(16, 16, 16, 0.82);
+}
+
+.warningBox {
+  margin: 0 auto 18px;
+  max-width: 760px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(255, 167, 38, 0.14);
+  color: #7a5400;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.weeksStack {
+  max-width: 704px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weekCard {
+  border: 1px solid rgba(16, 16, 16, 0.08);
+  border-radius: 14px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.weekHeader {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+}
+
+.weekTitle {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.1;
+  font-weight: 700;
+  color: #101010;
+}
+
+.iconCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(121, 134, 255, 0.12);
+  color: #7e8dff;
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sessionsList {
+  padding: 0 28px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sessionCard {
+  border: 1px solid rgba(16, 16, 16, 0.28);
+  border-radius: 12px;
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  background: transparent;
+}
+
+.sessionMain {
+  min-width: 0;
+}
+
+.sessionDay {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(16, 16, 16, 0.9);
+}
+
+.sessionTitle {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 500;
+  color: #101010;
+}
+
+.sessionDetails {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: rgba(16, 16, 16, 0.48);
+  line-height: 1.35;
+}
+
+.sessionMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.intensityBadge,
+.typeBadge,
+.durationPill {
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.intensityBadge,
+.typeBadge {
+  padding: 8px 12px;
+}
+
+.intensityLow {
+  background: rgba(23, 55, 255, 0.08);
+  color: #1737ff;
+}
+
+.intensityModerate {
+  background: rgba(255, 167, 38, 0.16);
+  color: #9b5a00;
+}
+
+.intensityHigh {
+  background: rgba(255, 45, 45, 0.12);
+  color: #d72b2b;
+}
+
+.typeBadge {
+  background: rgba(16, 16, 16, 0.06);
+  color: rgba(16, 16, 16, 0.66);
+}
+
+.durationPill {
+  min-width: 68px;
+  height: 32px;
+  padding: 0 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(121, 134, 255, 0.1);
+  color: #101010;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .cardShell {
+    min-height: auto;
+    padding: 42px 18px;
+  }
+
+  .cardShellLarge {
+    padding: 28px 14px 32px;
+  }
+
+  .heroTitle,
+  .planTitle {
+    font-size: 24px;
+  }
+
+  .weekTitle {
+    font-size: 22px;
+  }
+
+  .weekHeader {
+    padding: 20px 18px;
+  }
+
+  .sessionsList {
+    padding: 0 18px 18px;
+  }
+
+  .sessionCard {
+    padding: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .durationPill {
+    align-self: flex-start;
+  }
+
+  .actionsRow,
+  .doubleActionRow,
+  .footerActions {
+    width: 100%;
+  }
+
+  .primaryButtonWide,
+  .secondaryButton,
+  .secondaryGhostButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .sectionIcon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .heroTitle,
+  .planTitle {
+    font-size: 22px;
+  }
+
+  .heroText,
+  .planSubtitle,
+  .warningBox,
+  .sessionDetails {
+    font-size: 13px;
+  }
+
+  .input {
+    height: 54px;
+    font-size: 15px;
+  }
+
+  .actionsRow {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .secondarySquareButton {
+    flex: 0 0 48px;
+  }
+
+  .primaryButtonWide {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .weekHeader {
+    padding: 18px 14px;
+  }
+
+  .sessionsList {
+    padding: 0 14px 14px;
+  }
+
+  .sessionCard {
+    padding: 16px 14px;
+  }
+
+  .sessionTitle {
+    font-size: 18px;
+  }
+
+  .sessionDay {
+    font-size: 15px;
+  }
+}
