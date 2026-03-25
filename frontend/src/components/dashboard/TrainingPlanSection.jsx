@@ -66,7 +66,6 @@ function SessionCard({ session }) {
           <span className={`${styles.intensityBadge} ${getIntensityClass(session.intensity)}`}>
             Intensité {INTENSITY_LABELS[session.intensity] || session.intensity}
           </span>
-          <span className={styles.typeBadge}>{session.type}</span>
         </div>
       </div>
 
@@ -185,7 +184,30 @@ function StepStartDate({ startDate, onChange, onBack, onSubmit, isLoading }) {
 
       <div className={styles.actionsRow}>
         <button type="button" className={styles.secondarySquareButton} onClick={onBack}>
-          ←
+          <svg
+            className={styles.arrowIcon}
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M9 5L4 10L9 15"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+
+            <path
+              d="M4 10H16"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+          </svg>
         </button>
         <button
           type="button"
@@ -221,7 +243,7 @@ function ErrorState({ message, onRetry, onBack }) {
 
       <div className={styles.doubleActionRow}>
         <button type="button" className={styles.secondaryGhostButton} onClick={onBack}>
-          Modifier
+          Retour
         </button>
         <button type="button" className={styles.primaryButton} onClick={onRetry}>
           Réessayer
@@ -449,7 +471,7 @@ export default function TrainingPlanSection() {
       <ErrorState
         message={error}
         onRetry={generatePlan}
-        onBack={() => setStep("start-date")}
+        onBack={() => setStep("plan")}
       />
     );
   }

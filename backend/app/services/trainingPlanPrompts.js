@@ -1,5 +1,3 @@
-// backend/app/services/trainingPlanPrompts.js
-
 const ALLOWED_GOALS = [
   "5k",
   "10k",
