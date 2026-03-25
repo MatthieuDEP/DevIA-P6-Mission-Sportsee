@@ -14,6 +14,7 @@ const GOAL_OPTIONS = [
 
 const DEFAULT_AVAILABLE_DAYS = ["monday", "wednesday", "friday", "sunday"];
 const DEFAULT_MAX_SESSIONS = 4;
+const DEFAULT_PREFERRED_TIME = "18:00";
 
 const DAY_LABELS = {
   monday: "Lundi",
@@ -37,19 +38,6 @@ function MinusIcon() {
 
 function PlusIcon() {
   return <span className={styles.iconCircle}>+</span>;
-}
-
-function downloadPlan(plan) {
-  const blob = new Blob([JSON.stringify(plan, null, 2)], {
-    type: "application/json;charset=utf-8",
-  });
-
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "sportsee-training-plan.json";
-  link.click();
-  URL.revokeObjectURL(url);
 }
 
 function getIntensityClass(intensity) {
@@ -243,7 +231,14 @@ function ErrorState({ message, onRetry, onBack }) {
   );
 }
 
-function PlanView({ plan, onRegenerate, isRegenerating }) {
+function PlanView({
+  plan,
+  startDate,
+  onRegenerate,
+  isRegenerating,
+  onDownloadIcs,
+  isDownloadingIcs,
+}) {
   const [openWeeks, setOpenWeeks] = useState(() => {
     const initial = {};
     for (const week of plan.weeks || []) {
@@ -268,7 +263,9 @@ function PlanView({ plan, onRegenerate, isRegenerating }) {
     <section className={styles.cardShellLarge}>
       <div className={styles.planIntro}>
         <h2 className={styles.planTitle}>Votre planning de la semaine</h2>
-        <p className={styles.planSubtitle}>Important pour définir un programme adapté</p>
+        <p className={styles.planSubtitle}>
+          {startDate ? `Début du programme : ${startDate}` : "Important pour définir un programme adapté"}
+        </p>
       </div>
 
       {warningText && <div className={styles.warningBox}>{warningText}</div>}
@@ -288,9 +285,10 @@ function PlanView({ plan, onRegenerate, isRegenerating }) {
         <button
           type="button"
           className={styles.secondaryButton}
-          onClick={() => downloadPlan(plan)}
+          onClick={onDownloadIcs}
+          disabled={isDownloadingIcs}
         >
-          Télécharger
+          {isDownloadingIcs ? "Téléchargement..." : "Télécharger"}
         </button>
 
         <button type="button" className={styles.primaryButtonWide} onClick={onRegenerate}>
@@ -308,6 +306,7 @@ export default function TrainingPlanSection() {
   const [plan, setPlan] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isDownloadingIcs, setIsDownloadingIcs] = useState(false);
 
   async function generatePlan() {
     setIsLoading(true);
@@ -336,6 +335,13 @@ export default function TrainingPlanSection() {
         : await response.text();
 
       if (!response.ok) {
+        if (typeof data === "object" && response.status === 429) {
+          throw new Error(
+            data?.message ||
+              "Vous avez atteint la limite de générations autorisées pour aujourd’hui."
+          );
+        }
+
         throw new Error(
           typeof data === "string"
             ? data
@@ -354,6 +360,56 @@ export default function TrainingPlanSection() {
       setStep("error");
     } finally {
       setIsLoading(false);
+    }
+  }
+
+  async function downloadIcs() {
+    if (!plan) return;
+
+    try {
+      setIsDownloadingIcs(true);
+
+      const response = await fetch("/api/training-plan/download-ics", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          plan,
+          startDate,
+          preferredTime: DEFAULT_PREFERRED_TIME,
+        }),
+      });
+
+      if (!response.ok) {
+        const contentType = response.headers.get("content-type") || "";
+        const data = contentType.includes("application/json")
+          ? await response.json()
+          : await response.text();
+
+        throw new Error(
+          typeof data === "string"
+            ? data
+            : data?.message || "Impossible de télécharger le fichier ICS."
+        );
+      }
+
+      const blob = await response.blob();
+      const disposition = response.headers.get("content-disposition") || "";
+      const match = disposition.match(/filename="([^"]+)"/);
+      const filename = match?.[1] || "sportsee-training-plan.ics";
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      setError(err.message || "Une erreur est survenue pendant le téléchargement.");
+      setStep("error");
+    } finally {
+      setIsDownloadingIcs(false);
     }
   }
 
@@ -401,8 +457,11 @@ export default function TrainingPlanSection() {
   return (
     <PlanView
       plan={plan}
+      startDate={startDate}
       onRegenerate={generatePlan}
       isRegenerating={isLoading}
+      onDownloadIcs={downloadIcs}
+      isDownloadingIcs={isDownloadingIcs}
     />
   );
 }

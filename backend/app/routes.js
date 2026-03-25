@@ -4,6 +4,12 @@ const jwt = require("jsonwebtoken");
 const users = require("./data.json");
 const { authenticateToken, generateToken } = require("./middleware");
 const { generateTrainingPlan } = require("./services/trainingPlanService");
+const { generateTrainingPlanIcs } = require("./services/icsService");
+const {
+  canGenerateTrainingPlan,
+  incrementGenerationCount,
+  getGenerationUsage,
+} = require("./services/dailyTrainingPlanLimitService");
 
 const SECRET_KEY = "your-secret-key-12345"; // In a real app, this would be in environment variables
 
@@ -126,20 +132,78 @@ router.post("/api/training-plan/generate", authenticateToken, async (req, res) =
       return res.status(404).json({ message: "User not found" });
     }
 
+    const limitCheck = canGenerateTrainingPlan(req.user.userId);
+
+    if (!limitCheck.allowed) {
+      return res.status(429).json({
+        ok: false,
+        message: "Vous avez atteint la limite de 3 générations de planning pour aujourd’hui.",
+        limit: limitCheck.limit,
+        used: limitCheck.count,
+        remaining: limitCheck.remaining,
+      });
+    }
+
     const payload = {
       ...req.body,
       age: user.userInfos?.age || req.body.age,
     };
 
     const result = await generateTrainingPlan(payload);
+    const usage = incrementGenerationCount(req.user.userId);
 
-    return res.status(200).json(result);
+    return res.status(200).json({
+      ...result,
+      dailyLimit: {
+        limit: usage.limit,
+        used: usage.count,
+        remaining: usage.remaining,
+      },
+    });
   } catch (error) {
     return res.status(400).json({
       ok: false,
       message: error.message || "Unable to generate training plan",
     });
   }
+});
+
+router.post("/api/training-plan/download-ics", authenticateToken, async (req, res) => {
+  try {
+    const { plan, startDate, preferredTime } = req.body;
+
+    if (!plan) {
+      return res.status(400).json({ message: "plan is required" });
+    }
+
+    if (!startDate) {
+      return res.status(400).json({ message: "startDate is required" });
+    }
+
+    const { filename, content } = generateTrainingPlanIcs({
+      plan,
+      startDate,
+      preferredTime,
+    });
+
+    res.setHeader("Content-Type", "text/calendar; charset=utf-8");
+    res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
+    return res.status(200).send(content);
+  } catch (error) {
+    return res.status(400).json({
+      message: error.message || "Unable to generate ICS file",
+    });
+  }
+});
+
+router.get("/api/training-plan/generation-limit", authenticateToken, (req, res) => {
+  const usage = getGenerationUsage(req.user.userId);
+
+  return res.status(200).json({
+    limit: usage.limit,
+    used: usage.count,
+    remaining: usage.remaining,
+  });
 });
 
 module.exports = router;

@@ -2,7 +2,7 @@
 .cardShellLarge {
   width: 100%;
   background: white;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 0 0 1px rgba(16, 16, 16, 0.05);
 }
 
@@ -172,7 +172,8 @@
 }
 
 .primaryButton:disabled,
-.primaryButtonWide:disabled {
+.primaryButtonWide:disabled,
+.secondaryButton:disabled {
   opacity: 0.65;
   cursor: not-allowed;
 }

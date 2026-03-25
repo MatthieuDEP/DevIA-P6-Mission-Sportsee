@@ -14,7 +14,7 @@ export async function POST(request) {
   const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:8000";
 
   try {
-    const response = await fetch(`${apiBase}/api/training-plan/generate`, {
+    const response = await fetch(`${apiBase}/api/training-plan/download-ics`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,28 +24,38 @@ export async function POST(request) {
       body: JSON.stringify(body),
     });
 
-    const contentType = response.headers.get("content-type") || "";
-    const data = contentType.includes("application/json")
-      ? await response.json()
-      : await response.text();
-
     if (!response.ok) {
+      const contentType = response.headers.get("content-type") || "";
+      const data = contentType.includes("application/json")
+        ? await response.json()
+        : await response.text();
+
       return NextResponse.json(
         {
           message:
             typeof data === "string"
               ? data
-              : data?.message || "Impossible de générer le planning.",
-          ...(typeof data === "object" && data ? data : {}),
+              : data?.message || "Impossible de générer le fichier ICS.",
         },
         { status: response.status }
       );
     }
 
-    return NextResponse.json(data);
+    const content = await response.text();
+    const disposition = response.headers.get("content-disposition") || "";
+    const match = disposition.match(/filename="([^"]+)"/);
+    const filename = match?.[1] || "sportsee-training-plan.ics";
+
+    return new NextResponse(content, {
+      status: 200,
+      headers: {
+        "Content-Type": "text/calendar; charset=utf-8",
+        "Content-Disposition": `attachment; filename="${filename}"`,
+      },
+    });
   } catch {
     return NextResponse.json(
-      { message: "Le service de génération est indisponible pour le moment." },
+      { message: "Le service de téléchargement ICS est indisponible." },
       { status: 500 }
     );
   }
